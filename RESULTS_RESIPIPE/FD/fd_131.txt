@@ -1,0 +1,22 @@
+Mon Feb 23 15:09:45 2026 [36mINFO[0m Clearing logs
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink] Rank 0:[0m
+  Processed    : 925000 msg.
+  Elapsed time : 25.21321808 sec.
+  Throughput   : 36687.10583374 msg/sec.
+[1m================
+[0mMon Feb 23 15:10:13 2026 [36mINFO[0m Clearing logs
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink] Rank 0:[0m
+  Processed    : 925000 msg.
+  Elapsed time : 25.30081336 sec.
+  Throughput   : 36560.08947162 msg/sec.
+[1m================
+[0mMon Feb 23 15:10:43 2026 [36mINFO[0m Clearing logs
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink] Rank 0:[0m
+  Processed    : 925000 msg.
+  Elapsed time : 25.64439131 sec.
+  Throughput   : 36070.26537484 msg/sec.
+[1m================
+[0m

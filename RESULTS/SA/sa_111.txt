@@ -1,0 +1,27 @@
+======================================
+Pattern: 1,1,1 | NP: 3
+======================================
+Run 1 / 3
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink][0m
+  Processed    : 80000 msg.
+  Elapsed time : 2.69741074 sec.
+  Throughput   : 29658.07122563 msg/sec.
+[1m================
+[0m
+Run 2 / 3
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink][0m
+  Processed    : 80000 msg.
+  Elapsed time : 2.62587276 sec.
+  Throughput   : 30466.06116660 msg/sec.
+[1m================
+[0m
+Run 3 / 3
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink][0m
+  Processed    : 80000 msg.
+  Elapsed time : 2.77705327 sec.
+  Throughput   : 28807.51365637 msg/sec.
+[1m================
+[0m

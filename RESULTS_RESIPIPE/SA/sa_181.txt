@@ -1,0 +1,30 @@
+======================================
+Pattern: 1,8,1 | NP: 10
+======================================
+Run 1 / 3
+Mon Feb 23 16:03:39 2026 [36mINFO[0m Clearing logs
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink] Rank 0:[0m
+  Processed    : 80000 msg.
+  Elapsed time : 7.01686307 sec.
+  Throughput   : 11401.10604196 msg/sec.
+[1m================
+[0m
+Run 2 / 3
+Mon Feb 23 16:03:48 2026 [36mINFO[0m Clearing logs
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink] Rank 0:[0m
+  Processed    : 80000 msg.
+  Elapsed time : 8.22478236 sec.
+  Throughput   : 9726.70114401 msg/sec.
+[1m================
+[0m
+Run 3 / 3
+Mon Feb 23 16:03:58 2026 [36mINFO[0m Clearing logs
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink] Rank 0:[0m
+  Processed    : 80000 msg.
+  Elapsed time : 7.50975826 sec.
+  Throughput   : 10652.80628620 msg/sec.
+[1m================
+[0m

@@ -1,0 +1,11 @@
+======================================
+Pattern: 1,4,8,1 | NP: 14
+======================================
+Run 4 / 3
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink][0m
+  Processed    : 75000 msg.
+  Elapsed time : 79.79542786 sec.
+  Throughput   : 939.90347583 msg/sec.
+[1m================
+[0m

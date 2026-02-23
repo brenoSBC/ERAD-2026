@@ -1,0 +1,19 @@
+[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink][0m
+  Processed    : 925000 msg.
+  Elapsed time : 14.82609547 sec.
+  Throughput   : 62389.99350396 msg/sec.
+[1m================
+[0m[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink][0m
+  Processed    : 925000 msg.
+  Elapsed time : 14.28466932 sec.
+  Throughput   : 64754.73663544 msg/sec.
+[1m================
+[0m[36mDSPB-INFO[0m message or time limit not specified.
+[1;34m[Sink][0m
+  Processed    : 925000 msg.
+  Elapsed time : 14.00727159 sec.
+  Throughput   : 66037.12893854 msg/sec.
+[1m================
+[0m
