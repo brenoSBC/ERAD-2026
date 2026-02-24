@@ -20,3 +20,5 @@ Mon Feb 23 15:11:25 2026 [36mINFO[0m Clearing logs
   Throughput   : 15621.44508131 msg/sec.
 [1m================
 [0m
+
+MEDIA 14.982,66 msg/sec

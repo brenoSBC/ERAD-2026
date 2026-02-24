@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ---- Estilo geral parecido com artigo científico ----
 plt.rcParams.update({
     "font.family": "serif",
     "font.size": 14,
@@ -12,74 +11,99 @@ plt.rcParams.update({
     "axes.linewidth": 1.2
 })
 
-patterns = ['sa_111', 'sa_121', 'sa_131', 'sa_141', 'sa_161', 'sa_181']
+patterns = ['sa111', 'sa121', 'sa131', 'sa141', 'sa161', 'sa181']
 
-openmpi = np.array([29643.88, 28647.28, 11084.48, 13174.14, 13854.63, 13338.56])
-resipipe = np.array([26647.83, 25926.06, 18375.54, 14680.49, 12173.03, 10593.54])
-
-overhead = [
-    (o - r) / o * 100
-    for o, r in zip(openmpi, resipipe)
+openmpi_bruto = [
+    [29658.07122563, 30466.06116660, 28807.51365637],
+    [28554.43435903, 28375.64157986, 29011.77148748],
+    [11207.68938162, 11274.42535585, 10771.31373085],
+    [13512.34258686, 12776.50771670, 13233.58147010],
+    [13227.06611419, 14136.04996488, 14200.77124658],
+    [13244.79203763, 13599.44607471, 13171.44837169]
 ]
 
+resipipe_bruto = [
+    [26643.23727877, 26096.52823757, 27201.73482818],
+    [26281.16512791, 25692.48379926, 25804.54275931],
+    [17550.08107974, 18563.05503453, 19013.48961194],
+    [15421.56946577, 14094.60400216, 12525.29341509],
+    [11729.77209742, 13114.03301788, 11675.28363675],
+    [11401.10604196, 9726.70114401, 10652.80628620]
+]
+
+openmpi_mean = np.mean(openmpi_bruto, axis=1)
+openmpi_std = np.std(openmpi_bruto, axis=1, ddof=1)
+
+resipipe_mean = np.mean(resipipe_bruto, axis=1)
+resipipe_std = np.std(resipipe_bruto, axis=1, ddof=1)
+
+normalized = resipipe_mean / openmpi_mean
 
 x = np.arange(len(patterns))
 width = 0.35
 
 fig, ax = plt.subplots(figsize=(10,6))
 
-# ---- Barras com hachura ----
 bars1 = ax.bar(
     x - width/2,
-    openmpi,
+    openmpi_mean,         
     width,
+    yerr=openmpi_std,  
+    capsize=8,
     label='OpenMPI',
     facecolor='white',
-    edgecolor='#00B3FF',
-    hatch='//////\\\\\\\\\\\\\\\\',
-    linewidth=1.2
-)
+    edgecolor='#159CEB',
+    hatch='/////\\\\\\\\',
+    linewidth=1.2,
+    error_kw=dict(ecolor='#0766F5', linewidth=1.2),
+    zorder=3
+    )
 
 bars2 = ax.bar(
     x + width/2,
-    resipipe,
+    resipipe_mean,
     width,
+    yerr=resipipe_std, 
+    capsize=8, 
     label='ResiPipe',
     facecolor='white',
-    edgecolor='#FF8800',
-    hatch='//////\\\\\\\\\\\\\\\\',
-    linewidth=1.2
-)
+    edgecolor='#F57C25',
+    hatch='////\\\\\\\\',
+    linewidth=1.2,
+    error_kw=dict(ecolor='#F0501A', linewidth=1.2),
+    zorder=3
+    )
 
-# Eixo secundário
 ax2 = ax.twinx()
-
 ax2.plot(
     x,
-    overhead,
-    color='black',
-    marker='o',
-    linestyle='-',
-    linewidth=2,
-    label='ResiPipe Overhead (%)'
+    normalized,
+    linestyle=':',
+    color='#001ABF',
+    marker='.',
+    markersize=6,
+    linewidth=1.5,
+    label='ResiPipe / OpenMPI',
+    zorder=4
 )
 
-ax2.set_ylabel('Diferença relativa')
-ax2.set_ylim(0, max(overhead)*1.3)
+ax2.set_ylabel('Desempenho normalizado em relação ao OpenMPI')
+ax2.set_ylim(0.5, max(normalized) * 1.05)
 
-# ---- Labels ----
 ax.set_xlabel('Aplicação e replicação')
 ax.set_ylabel('Throughput (msg/sec)')
 
 ax.set_xticks(x)
 ax.set_xticklabels(patterns, rotation=45)
 
-# ---- Grid pontilhado horizontal ----
 ax.yaxis.grid(True, linestyle=':', linewidth=1)
 ax.set_axisbelow(True)
 
-# ---- Legenda estilo limpo ----
 ax.legend(frameon=False)
 
+ax.tick_params(axis='x', labelsize=22)  # aumenta X
+ax.tick_params(axis='y', labelsize=22)  # aumenta Y
+
 plt.tight_layout()
+plt.savefig("sa_relativo.pdf", format="pdf")
 plt.show()

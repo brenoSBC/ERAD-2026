@@ -17,3 +17,5 @@
   Throughput   : 70678.16605777 msg/sec.
 [1m================
 [0m
+
+MEDIA 72.811,90 msg/sec

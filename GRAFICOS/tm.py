@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ---- Estilo geral parecido com artigo científico ----
 plt.rcParams.update({
     "font.family": "serif",
     "font.size": 14,
@@ -15,21 +14,21 @@ plt.rcParams.update({
 patterns = ['tm_1111', 'tm_1221', 'tm_1331', 'tm_1441', 'tm_1461', 'tm_1481']
 
 openmpi_bruto = [
-    [237.82825224, 238.89546364, 249.67209745],
-    [508.18686534, 526.18492365, 501.65408347],
-    [744.71599801, 732.47638097, 762.10815956],
-    [946.07649300, 928.39561095, 972.17463998],
-    [960.80977673, 919.40472661, 928.22674532],
-    [939.90347583, 911.44760985, 921.87690983]
+    [263.17739223, 260.57538838, 257.55803001],
+    [514.10416268, 506.63598439, 509.26518726],
+    [736.96766833, 744.33660444, 745.39030279],
+    [969.26710117, 967.57270316, 973.01019940],
+    [949.15721907, 960.63568013, 960.87737917],
+    [941.11875285, 940.28507381, 946.75946427]
 ]
 
 resipipe_bruto = [
-    [261.82594984, 247.96321714, 229.95670193],
-    [502.17777279, 523.95863660, 497.57345419],
-    [744.81661015, 727.60753266, 755.29846245],
-    [975.50270588, 998.51838453, 919.31485908],
-    [951.49125263, 924.16751247, 914.67902841],
-    [955.19284001, 902.74229892, 921.73419408]
+    [255.51209826, 256.02768722, 262.35495998],
+    [499.81328475, 499.59869590, 500.33018609],
+    [743.64916544, 745.82924768, 755.98469534],
+    [978.51328328, 970.82330600, 973.33140668],
+    [944.69201912, 962.25393025, 962.88015730],
+    [932.98138247, 963.63376474, 956.27273712]
 ]
 
 openmpi_mean = np.mean(openmpi_bruto, axis=1)
@@ -51,10 +50,10 @@ bars1 = ax.bar(
     capsize=8,
     label='OpenMPI',
     facecolor='white',
-    edgecolor='#00B3FF',
-    hatch='//////\\\\\\\\\\\\\\\\',
+    edgecolor='#159CEB',
+    hatch='////\\\\\\\\',
     linewidth=1.2,
-    error_kw=dict(ecolor='#00B3FF', linewidth=1.2),
+    error_kw=dict(ecolor='#0766F5', linewidth=1.2),
     zorder=3
     )
 
@@ -66,27 +65,28 @@ bars2 = ax.bar(
     capsize=8, 
     label='ResiPipe',
     facecolor='white',
-    edgecolor='#FF8800',
-    hatch='//////\\\\\\\\\\\\\\\\',
+    edgecolor='#F57C25',
+    hatch='////\\\\\\\\',
     linewidth=1.2,
-    error_kw=dict(ecolor='#FF8800', linewidth=1.2),
+    error_kw=dict(ecolor='#F0501A', linewidth=1.2),
     zorder=3
     )
 
 
-# ---- Labels ----
 ax.set_xlabel('Aplicação e replicação')
 ax.set_ylabel('Throughput (msg/sec)')
 
 ax.set_xticks(x)
 ax.set_xticklabels(patterns, rotation=45)
 
-# ---- Grid pontilhado horizontal ----
 ax.yaxis.grid(True, linestyle=':', linewidth=1)
 ax.set_axisbelow(True)
 
-# ---- Legenda estilo limpo ----
 ax.legend(frameon=False)
 
+ax.tick_params(axis='x', labelsize=22)  # aumenta X
+ax.tick_params(axis='y', labelsize=22)  # aumenta Y
+
 plt.tight_layout()
+plt.savefig("tm.pdf", format="pdf")
 plt.show()

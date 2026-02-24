@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ---- Estilo geral parecido com artigo científico ----
 plt.rcParams.update({
     "font.family": "serif",
     "font.size": 14,
@@ -52,10 +51,10 @@ bars1 = ax.bar(
     capsize=8,
     label='OpenMPI',
     facecolor='white',
-    edgecolor='#00B3FF',
-    hatch='//////\\\\\\\\\\\\\\\\',
+    edgecolor='#159CEB',
+    hatch='////\\\\\\\\',
     linewidth=1.2,
-    error_kw=dict(ecolor='#00B3FF', linewidth=1.2),
+    error_kw=dict(ecolor='#0766F5', linewidth=1.2),
     zorder=3
     )
 
@@ -67,27 +66,28 @@ bars2 = ax.bar(
     capsize=8, 
     label='ResiPipe',
     facecolor='white',
-    edgecolor='#FF8800',
-    hatch='//////\\\\\\\\\\\\\\\\',
+    edgecolor='#F57C25',
+    hatch='////\\\\\\\\',
     linewidth=1.2,
-    error_kw=dict(ecolor='#FF8800', linewidth=1.2),
+    error_kw=dict(ecolor='#F0501A', linewidth=1.2),
     zorder=3
     )
 
 
-# ---- Labels ----
 ax.set_xlabel('Aplicação e replicação')
 ax.set_ylabel('Throughput (msg/sec)')
 
 ax.set_xticks(x)
 ax.set_xticklabels(patterns, rotation=45)
 
-# ---- Grid pontilhado horizontal ----
 ax.yaxis.grid(True, linestyle=':', linewidth=1)
 ax.set_axisbelow(True)
 
-# ---- Legenda estilo limpo ----
 ax.legend(frameon=False)
 
+ax.tick_params(axis='x', labelsize=22)  # aumenta X
+ax.tick_params(axis='y', labelsize=22)  # aumenta Y
+
 plt.tight_layout()
+plt.savefig("wc.pdf", format="pdf")
 plt.show()

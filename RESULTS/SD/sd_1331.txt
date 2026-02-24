@@ -25,3 +25,5 @@ Run 3 / 3
   Throughput   : 11255.45450551 msg/sec.
 [1m================
 [0m
+
+MEDIA 10.668,80 msg/sec
